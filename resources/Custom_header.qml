@@ -1,21 +1,18 @@
 import QtQuick.Controls 2.13
 import QtQuick.Controls.Material 2.13
 
-Pane {
-  height: 50
-  property alias text : header_label.text
-  property alias pixelSize : header_label.font.pixelSize
+MenuBar {
+    id: menu_bar
+    Material.theme: Material.Dark
 
-  Material.theme: Material.Dark
-  Material.background: Material.primary
+    Menu {
+        id: menu
+        Material.theme: Material.Dark
+        title: qsTr("Menu")
 
-  Label {
-    id: header_label
-    anchors.fill: parent
-    text: "Header"
-    font.pixelSize: 16
-
-    horizontalAlignment: Label.AlignHCenter
-    verticalAlignment: Label.AlignVCenter
-  }
+        Action {
+            text: qsTr('Exit')
+            onTriggered: close()
+        }
+    }
 }

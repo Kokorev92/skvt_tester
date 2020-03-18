@@ -4,20 +4,23 @@ import QtQuick.Controls 2.13
 import QtQuick.Controls.Material 2.13
 
 Window {
-  width: 620
-  height: 380
-  visible: true
-  flags: Qt.FramelessWindowHint | Qt.Dialog
+    id: window 
+    width: 620
+    height: 620 + header.height
+    visible: true
+    title: qsTr('SKVT TESTER')
 
-  Material.background: Material.color(Material.Grey, Material.Shade300)
-
-  Pane {
-    anchors.fill: parent
     Page {
-      anchors.fill: parent
-      Material.background: Material.color(Material.Grey, Material.Shade200)
+        anchors.fill: parent
+        header: Custom_header {
+            id: header
+        }
 
-      header: Custom_header {}
+        Pane {
+            anchors.fill: parent
+            Skvt_visualisator {}
+
+            Material.background: "#FFF"
+        }
     }
-  }
 }
