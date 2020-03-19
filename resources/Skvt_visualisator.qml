@@ -9,7 +9,7 @@ Canvas {
     anchors.centerIn: parent
 
     onPaint: {
-        var angle = 180
+        var angle = 0
         var ctx = main_canvas.getContext('2d')
         ctx.strokeRect(0,0, width, height)
 
@@ -34,7 +34,7 @@ Canvas {
         ctx.beginPath()
         ctx.lineWidth = 3
         ctx.moveTo(xCenterScale, yCenterScale)
-        ctx.lineTo(xCenterScale + arrowLength * Math.cos(angle), yCenterScale + arrowLength * Math.sin(angle))
+        ctx.lineTo(xCenterScale + arrowLength * Math.cos(angle*Math.PI/180), yCenterScale + arrowLength * Math.sin(angle*Math.PI/180))
         ctx.stroke()
         ctx.closePath()
     }
